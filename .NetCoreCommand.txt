@@ -1,0 +1,57 @@
+1.打开命令提示符窗口
+
+2.转移到工作目录或创建一个工作目录（mkdir [dirname]）
+
+3.先看看dotnet help:
+Common Commands:
+  new           Initialize a basic .NET project
+  restore       Restore dependencies specified in the .NET project
+  build         Builds a .NET project
+  publish       Publishes a .NET project for deployment (including the runtime)
+  run           Compiles and immediately executes a .NET project
+  test          Runs unit tests using the test runner specified in the project
+  pack          Creates a NuGet package
+
+4.执行命令dotnet new -t [web/console]初始化一个.NetCore项目：
+C:\Users\gao\Desktop\test.NetCore>dotnet new -t -h
+Unrecognized type: -h
+Avaiable types for C# :
+- Console
+- Web
+- Lib
+- xunittest
+
+5.添加项目对其他包的依赖：dotnet restore [-h]
+log  : Restoring packages for C:\Users\gao\Desktop\test.NetCore\project.json...
+log  : Restoring packages for tool 'Microsoft.AspNetCore.Razor.Tools' in C:\Users\gao\Desktop\test.NetCore\project.json...
+log  : Restoring packages for tool 'Microsoft.AspNetCore.Server.IISIntegration.Tools' in C:\Users\gao\Desktop\test.NetCore\project.json...
+log  : Restoring packages for tool 'Microsoft.EntityFrameworkCore.Tools' in C:\Users\gao\Desktop\test.NetCore\project.json...
+log  : Restoring packages for tool 'Microsoft.Extensions.SecretManager.Tools' in C:\Users\gao\Desktop\test.NetCore\project.json...
+log  : Restoring packages for tool 'Microsoft.VisualStudio.Web.CodeGeneration.Tools' in C:\Users\gao\Desktop\test.NetCore\project.json...
+log  : Writing lock file to disk. Path: C:\Users\gao\Desktop\test.NetCore\project.lock.json
+log  : C:\Users\gao\Desktop\test.NetCore\project.json
+log  : Restore completed in 47172ms.
+
+
+6.编译或直接运行项目：dotnet build/dotnet run
+---------------------------------------------build------------------------------------------------------
+Project test.NetCore (.NETCoreApp,Version=v1.0) will be compiled because expected outputs are missing
+Compiling test.NetCore for .NETCoreApp,Version=v1.0
+
+Compilation succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time elapsed 00:00:05.9823530
+---------------------------------------------run------------------------------------------------------
+Project test.NetCore (.NETCoreApp,Version=v1.0) was previously compiled. Skipping compilation.
+info: Microsoft.Extensions.DependencyInjection.DataProtectionServices[0]
+      User profile is available. Using 'C:\Users\gao\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+Hosting environment: Production
+Content root path: C:\Users\gao\Desktop\test.NetCore
+Now listening on: http://localhost:5000
+Application started. Press Ctrl+C to shut down.
+
+
+打开浏览器输入http://localhost:5000
+Press Ctrl+C to shut down：停止项目
