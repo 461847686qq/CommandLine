@@ -1,0 +1,19 @@
+“Shit”+F10
+
+diskpart
+
+list disk:列出所有物理磁盘
+select disk 0:选择要操作的物理磁盘
+detail disk:查看磁盘详细信息
+clear：清除磁盘所有信息
+
+一个硬盘至少有1个主分区，最多4个，扩展分区可以没有，最多1个。且主分区+扩展分区总共不能超过4个
+create partition primary size=102400：创建主分区(单位：M)
+active：把主分区激活
+format quick:快速格式化分区
+
+create partition extended：创建扩展分区（没有size表示其余全部）
+list partition：查看已经创建好的分区
+
+create partition logical size=10240:创建一个逻辑分区
+delete partition:删除已经选中的分区
